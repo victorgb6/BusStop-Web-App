@@ -1,0 +1,224 @@
+@import 'sass-bootstrap/lib/bootstrap';
+
+/* Colors */
+$darker-gray: #2D3339;
+$dark-gray: #434D50;
+$light-green: #7ACC8D;
+$red: #FA4F4F;
+$yellow: #F0AD4E;
+$lighter-gray: #E5E5E5;
+$light-gray: #859094;
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: azure;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid $lighter-gray;
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+        font-family: 'Nunito', sans-serif;
+    }
+    h4{
+        font-family: 'Coming Soon', cursive;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+/*Custom Container*/
+.map-container {
+    text-align: center;
+    background: $darker-gray;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+}
+.inside-map-container{
+    width: 100%;
+    height: 100%;
+}
+/* The arrivals container */
+.list-container{
+    margin: 10px 0;
+    -webkit-transition: all .7s ease-out;
+    transition: all .7s ease-out;
+    position: relative;
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            color: white;
+            font-family: Arial;
+            font-size: 1.2em;
+            border-bottom: 1px solid $light-gray;
+            span{
+                text-align: center;
+                height: 57px;
+                display: inline-block;
+            }
+            /* Bus number span */
+            .first-item{               
+                width: 7%;
+                font-weight: bold;
+                padding: 13px;
+                background-color: $red;
+                font-size: 1.3em;
+            }
+            /* Bus direction span */
+            .second-item{
+                width: 83%;
+                padding: 13px;
+                font-size: 1.3em;
+                background-color: $dark-gray;
+            }
+            /* Bus arrival time span */
+            .third-item{
+                font-weight: bold;
+                font-size: 1.2em;
+                padding: 15px;
+                width: 10.003%;
+                background-color: $yellow;
+            }
+            /* When there is no arrivals */
+            .no-arrivals{
+                width: 100%;
+                background-color: $dark-gray;
+                font-size: 1.3em;
+                padding: 13px;
+                border-radius: 0 0 3px 3px;
+            }
+        }
+        /* Specific style for the last list items */
+        li:last-child{
+            border-bottom: 0px;
+            border-radius: 0 0 3px 3px;
+            .first-item{
+                border-radius: 0 0 0 3px;
+            }
+            .third-item{
+                border-radius: 0 0 3px 0;
+            }
+        }
+    }
+}
+/* Styles for the fade animation */
+.list-container.beginAnimate{  
+    opacity: 0;
+    top: 50px;
+}
+.list-container.endAnimate{
+    opacity: 1;
+    top: 0px;
+}
+.list-title{
+    margin: 0;
+    padding: 10px;
+    background-color: $light-green;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 1024px;
+    }
+    .map-container {
+        height: 500px;
+    }
+    /* Remove the padding we set earlier */
+    .header,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+/* Responsive: Tablets */
+@media screen and (max-width: 1199px) and (min-width:991px) {
+    .list-container ul li .second-item{
+        width: 80% !important;
+    }
+    .list-container ul li .third-item{
+        width: 14% !important;
+    }
+
+}
+/* Responsive: Phones */
+@media screen and (max-width: 990px) and (min-width: 735px)  {
+    .list-container ul li .first-item{
+        width: 9% !important;
+    }
+    .list-container ul li .second-item{
+        width: 77.002% !important;
+    }
+    .list-container ul li .third-item{
+        width: 14% !important;
+    }
+    .map-container{
+        height: 400px;
+    }
+}
+/* Responsive: Old Phones */
+@media screen and (max-width: 734px)  {
+    .list-container ul li .first-item{
+        width: 18% !important;
+        line-height: 2.2 !important;
+        font-size: 1em !important;
+    }
+    .list-container ul li .second-item{
+        width: 48% !important;
+        line-height: 3.4 !important;
+        font-size: .7em !important;
+        overflow: hidden;
+    }
+    .list-container ul li .third-item{
+        width: 34% !important;
+        line-height: 1.9 !important;
+        font-size: 1em !important;
+    }
+    .map-container{
+        height: 400px;
+    }
+}
